@@ -1,0 +1,24 @@
+import discord
+from discord.ext import commands 
+
+intents = discord.Intents.default()
+intents.message_content = True
+
+botsito=commands.Bot(command_prefix="/",intents=intents)
+
+@botsito.event
+async def on_ready():
+    print(f"hola se inicio el bot {botsito.user}")
+
+@botsito.command()
+async def hola(ctx):
+    await ctx.send(f"Hola mucho gusto mi nombre es {botsito.user}")
+
+
+@botsito.command()
+async def dime_algo_sobre_BNHA(ctx):
+    await ctx.send(f"My Hero Academia es una serie de anime realizada por el estudio BONES basada en el manga homónimo creado por Kohei Horihoshi acerca de un grupo de estudiantes que se preparan para ser superhéroes. La trama del anime My Hero Academia nos sitúa en un mundo en el que la mayoría de la población nace con superpoderes.")
+
+
+
+botsito.run("UN LINK DE DISCORD")
